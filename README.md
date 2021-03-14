@@ -1,1 +1,2 @@
-# project-1-2
+# Project Titan
+## Project 1-2 
