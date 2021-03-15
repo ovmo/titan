@@ -31,6 +31,11 @@ public class Planet
 	public double positionX;
 	public double positionY;
 	public double positionZ;
+
+	public Vector3d vector3d = new Vector3d(positionX, positionY, positionZ);
+	public Vector3d velVector = new Vector3d(velocityX, velocityY, velocityZ);
+	public Vector3d accVector = new Vector3d(0,0,0);
+
 }
 
 
