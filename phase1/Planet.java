@@ -3,6 +3,8 @@
 */
 public class Planet 
 {	
+
+	public static Planet[] planets;
 	/**
 	Initializing the Class
 	@param namePlanet - name of the planet to be created 
@@ -22,6 +24,14 @@ public class Planet
 		vector3d = new Vector3d(positionX, positionY, positionZ);
 		velVector = new Vector3d(velocityX, velocityY, velocityZ);
 		accVector = new Vector3d(0,0,0);
+	}
+
+	public void accReset ()
+	{
+		for (int i = 0; i < planets.length; i++)
+		{
+			planets[i].accVector = new Vector3d(0,0,0);
+		}
 	}
 
 	/**

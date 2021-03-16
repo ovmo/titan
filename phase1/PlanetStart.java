@@ -53,6 +53,14 @@ public class PlanetStart
 		venus.vectors();
 		planets[3] = venus;
 
+
+
+
+
+
+
+
+
 		Planet earth = new Planet("Earth");
 		earth.mass = 5.97219e+24;
 		earth.radius = 6371e+3;
@@ -65,6 +73,15 @@ public class PlanetStart
 		earth.velocityZ = 6.575428158157592e-01;
 		earth.vectors();
 		planets[4] = earth;
+
+
+
+
+
+
+
+
+
 
 		Planet moon = new Planet ("Moon");
 		moon.mass = 7.349e+22;
@@ -122,7 +139,7 @@ public class PlanetStart
 		titan.mass = 1.34553e+23;
 		titan.radius = 2575000.5;
 		titan.gravity = 1.352;
-		titan.velocityX  = 3.056877965721629e+03;
+		titan.velocityX = 3.056877965721629e+03;
 		titan.velocityY = 6.125612956428791e+03;
 		titan.velocityZ = -9.523587380845593e+02;
 		titan.positionX = 6.332873118527889e+11;
@@ -171,7 +188,7 @@ public class PlanetStart
 		spaceCraft.vectors();
 		planets[12] = spaceCraft;
 
-		//return planets;
+		Planet.planets = planets;
 	}
 }
 

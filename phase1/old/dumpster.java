@@ -64,3 +64,40 @@
 	// final double rSATURN=58232000.00;
 	// final double rTITAN=2575000.5;
 	// }*/
+
+	// Function old 
+		// import titan.FunctionInterface;
+		// import titan.Vector3dInterface;
+
+		// public class Function implements FunctionInterface {
+
+		//     @Override
+		//     public Vector3dInterface call(double t, Vector3dInterface s) {
+		//         return null;
+		//     }
+		// }
+
+	// newton loop
+	// for (int i = 0; i < planets.length; i ++)
+        // {
+        //     // HERE
+        //     for (int j = 1; j + i < planets.length; i++)
+        //     {
+        //         // HERE
+        //         Vector3DInterface acceleration = solve(planets[i], planets[j + i]);
+        //         // Need If around this
+        //         if (/*Somethign here*/ false)
+        //         {
+        //             planets[i].accVector = planets[i].accVector.add(acceleration);
+        //             planets[i+j].accVector = planets[i+j].accVector.add(acceleration);
+        //         }
+        //     } 
+        // }
+        // for (int k = 0; k < planets.length; k++)
+        // {
+        //     // need to update the position and velocity;
+        //     planets[k].vector3d = planets[k].vector3d.add(planets[k].velVector);
+        //     // planets[i+j].vector3d = planets[i+j].vector3d.add(planets[i+j].velVector);
+        //     planets[k].velVector = planets[k].velVector.add(acceleration);
+        //     // planets[i+j].velVector = planets[i+j].velVector.add(acceleration);
+        // }

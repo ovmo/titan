@@ -85,18 +85,21 @@ public class Vector3d implements Vector3dInterface {
         return null;
     }
 
+    // eicledian form of the vector
     @Override
     public double norm() {
         double norm = Math.sqrt((Math.pow((this.x - 0), 2) + Math.pow((this.y - 0), 2) + Math.pow((this.z - 0),2)));
         return norm;
     }
 
+    // Eicledian Distance of the 2 objects
     @Override
     public double dist(Vector3dInterface other) {
         double d = Math.sqrt((Math.pow((this.x - other.getX()), 2) + Math.pow((this.y - other.getY()), 2) + Math.pow(this.z - other.getZ(),2)));
         return d;
     }
 
+    @Override
     public String toString()
     {
         return "Vector (" + x + ", " + y + ", " + z + ") ";
