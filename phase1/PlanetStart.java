@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 /**
-* this class creates the solar constelation of the system on 01-04-2020
+* this class creates the solar constellation of the system on 01-04-2020
 * to kick start the program and find the best path to titian.
 */
 public class PlanetStart
@@ -9,11 +9,11 @@ public class PlanetStart
 	public Planet[] planets;
 
 	/**
-	Adding the constalation for the sky.
+	Adding the constellation for the sky.
 	*/
 	public PlanetStart()
 	{
-		planets = new Planet()[12];
+		planets = new Planet[12];
 		Planet sun = new Planet("Sun");
 		sun.mass = 1.988500e+30;
 		sun.radius = 6957e+05;
@@ -96,7 +96,7 @@ public class PlanetStart
 		jupiter.mass= 1.89813e+27;
 		jupiter.radius = 69911e+03;
 		jupiter.gravity = 24.79;
-		jupiter.postionX = 1.781303138592153e+11; 
+		jupiter.positionX = 1.781303138592153e+11;
 		jupiter.positionY =-7.551118436250277e+11;
 		jupiter.positionZ =-8.532838524802327e+08;
 		jupiter.velocityX = 1.255852555185220e+04; 
@@ -112,9 +112,9 @@ public class PlanetStart
 		saturn.velocityX  = 8.220842186554890e+03;
 		saturn.velocityY = 4.052137378979608e+03;
 		saturn.velocityZ = -3.976224719266916e+02;
-		saturn.positonX = 6.328646641500651e+11;
-		saturn.positonY = -1.358172804527507e+12;
-		saturn.positonZ = -1.578520137930810e+09;
+		saturn.positionX = 6.328646641500651e+11;
+		saturn.positionY = -1.358172804527507e+12;
+		saturn.positionZ = -1.578520137930810e+09;
 
 		planets[8] = saturn;
 
@@ -125,9 +125,9 @@ public class PlanetStart
 		titan.velocityX  = 3.056877965721629e+03;
 		titan.velocityY = 6.125612956428791e+03;
 		titan.velocityZ = -9.523587380845593e+02;
-		titan.positonX = 6.332873118527889e+11;
-		titan.positonY = -1.357175556995868e+12;
-		titan.positonZ = -2.134637041453660e+09;
+		titan.positionX = 6.332873118527889e+11;
+		titan.positionY = -1.357175556995868e+12;
+		titan.positionZ = -2.134637041453660e+09;
 
 		planets[9] = titan;
 
@@ -138,9 +138,9 @@ public class PlanetStart
 		uranus.velocityX  = -4.059468635313243e+03;
 		uranus.velocityY = 5.187467354884825e+03;
 		uranus.velocityZ = 7.182516236837899e+01;
-		uranus.positonX = 2.395195786685187e+12;
-		uranus.positonY = 1.744450959214586e+12;
-		uranus.positonZ = -2.455116324031639e+10;
+		uranus.positionX = 2.395195786685187e+12;
+		uranus.positionY = 1.744450959214586e+12;
+		uranus.positionZ = -2.455116324031639e+10;
 
 		planets[10] = uranus;
 
@@ -151,9 +151,9 @@ public class PlanetStart
 		neptune.velocityX  = 1.068410720964204e+03;
 		neptune.velocityY = 5.354959501569486e+03;
 		neptune.velocityZ = -1.343918199987533e+02;
-		neptune.positonX = 4.382692942729203e+12;
-		neptune.positonY = -9.093501655486243e+11;
-		neptune.positonZ = -8.227728929479486e+10;
+		neptune.positionX = 4.382692942729203e+12;
+		neptune.positionY = -9.093501655486243e+11;
+		neptune.positionZ = -8.227728929479486e+10;
 
 		planets[11] = neptune;
 
@@ -170,7 +170,7 @@ public class PlanetStart
 
 		planets[12] = spaceCraft;
 
-		return planets;
+		//return planets;
 	}
 }
 
