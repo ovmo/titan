@@ -24,7 +24,7 @@ public class PlanetStart
 		sun.velocityX = -1.420511669610689e+01;
 		sun.velocityY = -4.954714716629277e+00;
 		sun.velocityZ = 3.994237625449041e-01;
-
+		sun.vectors();
 		planets[1] = sun;
 
 		Planet mercury = new Planet("Mercury");
@@ -37,7 +37,7 @@ public class PlanetStart
 		mercury.velocityX = 3.892585189044652e+04; 
 		mercury.velocityY = 2.978342247012996e+03;
 		mercury.velocityZ = -3.327964151414740e+03;
-
+		mercury.vectors();
 		planets[2] = mercury;
 
 		Planet venus = new Planet("Venus");
@@ -50,7 +50,7 @@ public class PlanetStart
 		venus.velocityX = -1.726404287724406e+04;
 		venus.velocityY = -3.073432518238123e+04;
 		venus.velocityX = 5.741783385280979e-04;
-
+		venus.vectors();
 		planets[3] = venus;
 
 		Planet earth = new Planet("Earth");
@@ -63,7 +63,7 @@ public class PlanetStart
 		earth.velocityX = 5.427193405797901e+03;
 		earth.velocityY = -2.931056622265021e+04;
 		earth.velocityZ = 6.575428158157592e-01;
-
+		earth.vectors();
 		planets[4] = earth;
 
 		Planet moon = new Planet ("Moon");
@@ -76,7 +76,7 @@ public class PlanetStart
 		moon.velocityX = 2.481551975121696e+04;
 		moon.velocityY = -1.816368005464070e+03;
 		moon.velocityZ = -6.467321619018108e+02;
-
+		moon.vectors();
 		planets[5] = moon;
 
 		Planet mars = new Planet ("Mars");
@@ -89,7 +89,7 @@ public class PlanetStart
 		mars.velocityX = 2.481551975121696e+04;
 		mars.velocityY = -1.816368005464070e+03;
 		mars.velocityZ = -6.467321619018108e+02;
-
+		mars.vectors();
 		planets[6] = mars;
 
 		Planet jupiter = new Planet("Jupiter");
@@ -102,7 +102,7 @@ public class PlanetStart
 		jupiter.velocityX = 1.255852555185220e+04; 
 		jupiter.velocityY = 3.622680192790968e+03;
 		jupiter.velocityZ =-2.958620380112444e+02;
-
+		jupiter.vectors();
 		planets[7] = jupiter;
 
 		Planet saturn = new Planet("Saturn");
@@ -115,7 +115,7 @@ public class PlanetStart
 		saturn.positionX = 6.328646641500651e+11;
 		saturn.positionY = -1.358172804527507e+12;
 		saturn.positionZ = -1.578520137930810e+09;
-
+		saturn.vectors();
 		planets[8] = saturn;
 
 		Planet titan = new Planet("Titan");
@@ -128,7 +128,7 @@ public class PlanetStart
 		titan.positionX = 6.332873118527889e+11;
 		titan.positionY = -1.357175556995868e+12;
 		titan.positionZ = -2.134637041453660e+09;
-
+		titan.vectors();
 		planets[9] = titan;
 
 		Planet uranus = new Planet("Uranus");
@@ -141,7 +141,7 @@ public class PlanetStart
 		uranus.positionX = 2.395195786685187e+12;
 		uranus.positionY = 1.744450959214586e+12;
 		uranus.positionZ = -2.455116324031639e+10;
-
+		uranus.vectors();
 		planets[10] = uranus;
 
 		Planet neptune = new Planet("Neptune");
@@ -154,10 +154,11 @@ public class PlanetStart
 		neptune.positionX = 4.382692942729203e+12;
 		neptune.positionY = -9.093501655486243e+11;
 		neptune.positionZ = -8.227728929479486e+10;
-
+		neptune.vectors();
 		planets[11] = neptune;
 
 		Planet spaceCraft = new Planet ("SpaceCraft");
+		// Adding the Earths radius sonewhere = 6371e+3;
 		spaceCraft.mass = 100;
 		spaceCraft.radius = 10;
 		spaceCraft.gravity = 1e-10;
@@ -167,7 +168,7 @@ public class PlanetStart
 		spaceCraft.velocityX = 5.427193405797901e+03;
 		spaceCraft.velocityY = -2.931056622265021e+04;
 		spaceCraft.velocityZ = 6.575428158157592e-01;
-
+		spaceCraft.vectors();
 		planets[12] = spaceCraft;
 
 		//return planets;

@@ -13,6 +13,16 @@ public class Planet
 		name = namePlanet;
 		step = 0;
 	}
+	
+	/**
+	This method gets called at the end of initialization to create the vector3d objects.
+	*/
+	public void vectors ()
+	{
+		vector3d = new Vector3d(positionX, positionY, positionZ);
+		velVector = new Vector3d(velocityX, velocityY, velocityZ);
+		accVector = new Vector3d(0,0,0);
+	}
 
 	/**
 	Instance fields of the Planet
@@ -31,6 +41,11 @@ public class Planet
 	public double positionX;
 	public double positionY;
 	public double positionZ;
+
+	public Vector3d vector3d;
+	public Vector3d velVector;
+	public Vector3d accVector;
+
 }
 
 

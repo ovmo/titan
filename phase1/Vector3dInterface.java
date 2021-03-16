@@ -7,7 +7,7 @@
 
 package titan;
 
-public interface Vector3dInterface2 {
+public interface Vector3dInterface {
 
     public double getX();
     public void setX(double x);

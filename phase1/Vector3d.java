@@ -96,4 +96,9 @@ public class Vector3d implements Vector3dInterface {
         double d = Math.sqrt((Math.pow((this.x - other.getX()), 2) + Math.pow((this.y - other.getY()), 2) + Math.pow(this.z - other.getZ(),2)));
         return d;
     }
+
+    public String toString()
+    {
+        return "Vector (" + x + ", " + y + ", " + z + ") ";
+    }
 }
