@@ -7,6 +7,7 @@ import titan.Vector3dInterface;
 
 public class Newton {
 
+    private static final boolean DEBUG = false;
     private static final double G = 6.6743015e-11; //gravitational constant
     private static double r; //Euclidian distance between i and j
     private static double rCube; //distance cubed
@@ -20,7 +21,10 @@ public class Newton {
      * @return F gravitational force acting on i and j
      */
     public static Vector3dInterface solve(Planet i, Planet j){
-
+        if(DEBUG)
+        {
+            System.out.println("Planet1: " + i.name + ", Planet2: " + j.name);
+        }
         r = i.vector3d.dist(j.vector3d);
         rCube = Math.pow(r, 3);
 
@@ -35,8 +39,8 @@ public class Newton {
 
 
         // Reset the acceleration to 0;
-        planets[0].accReset();
-        
+            // planets[0].accReset();
+
         for(int i = 0; i < planets.length; i++){
             for(int j = 0; j < planets.length; j++){
                 if(i != j){
@@ -50,11 +54,11 @@ public class Newton {
         // update the Positon and velocities
         for (int k = 0; k < planets.length; k++)
         {
-            planets[k].vector3d = planets[k].vector3d.add(planets[k].velVector.mul(stepSize));
-            planets[k].velVector = planets[k].velVector.add(planets[k].accVector.mul(stepSize));
+            planets[k].vector3d = (Vector3d)(planets[k].vector3d.add(planets[k].velVector.mul(stepSize)));
+            planets[k].velVector = (Vector3d)(planets[k].velVector.add(planets[k].accVector.mul(stepSize)));
         }
 
-        if (planets[planets.length - 1].radius + planets[9].radius >= planets[9].vector3d.dist(planets[planets.length-1].vector3d))
+        if (planets[planets.length - 1].radius + planets[8].radius >= planets[8].vector3d.dist(planets[planets.length-1].vector3d))
         {
             // End the process => 
             return true;

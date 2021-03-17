@@ -5,6 +5,6 @@ public class SimpleTest
 
 		Simple testing = new Simple ();
 
-		// testing.calc();
+		testing.calc(86400);
 	}
 }

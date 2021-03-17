@@ -6,12 +6,11 @@ public class Simple
 	{
 		PlanetStart start = new PlanetStart();
 		planets = start.planets;
-		calc(1);
 	}
 
 	public void calc (int stepSize)
 	{
-		int cap = 365; // days
+		int cap = 31536001; // one year in seconds
 		for (int d = 0; d < cap; d += stepSize)
 		{
 			if (Newton.newtonLoop(planets, stepSize))
@@ -22,7 +21,10 @@ public class Simple
 			{
 				if (DEBUG)
 				{
-					System.out.print("" +d + ", ");
+					// System.out.print("" +d + ", ");
+					double distanceProbeTitan = planets[11].vector3d.dist(planets[8].vector3d);
+					System.out.print(distanceProbeTitan + ", ");
+					System.out.println(planets[3].vector3d.dist(planets[8].vector3d));
 				}
 			}
 		}
