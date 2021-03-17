@@ -21,9 +21,8 @@ public class Simple
 			{
 				if (DEBUG)
 				{
-					// System.out.print("" +d + ", ");
-					double distanceProbeTitan = planets[11].vector3d.dist(planets[8].vector3d);
-					System.out.print(distanceProbeTitan + ", ");
+					System.out.print("" + (d/86400) + ", ");
+					System.out.print("" + planets[11].vector3d.dist(planets[8].vector3d) + ", ");
 					System.out.println(planets[3].vector3d.dist(planets[8].vector3d));
 				}
 			}
