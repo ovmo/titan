@@ -90,7 +90,7 @@ public class Simple
 			}
 			else 
 			{
-				if (DEBUG && (d % 864000) == 0)
+				if (DEBUG && (d % 864000) == 0) // 86400 represents an interval of 10 days, in terms of seconds.
 				{
 					System.out.print((planets[8].vector3d.sub(planets[11].vector3d)).toString());
 					System.out.println (", Norm: " + (planets[8].vector3d.sub(planets[11].vector3d)).norm());
