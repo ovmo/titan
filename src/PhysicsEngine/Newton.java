@@ -8,7 +8,9 @@ import PhysicsEngine.titan.Vector3dInterface;
 
 public class Newton
 {
-
+    /**
+    Instance Variables to make it easy to run
+    */
     private static final boolean DEBUG = false;
     private static final double G = 6.6743015e-11;  //Gravitational constant
     private static double r;                        //Euclidean distance between i and j
@@ -28,14 +30,16 @@ public class Newton
         {
             System.out.println("Planet1: " + i.name + ", Planet2: " + j.name);
         }
+        // finding the bottom of the devision
         r = i.vector3d.dist(j.vector3d);
         rCube = Math.pow(r, 3);
         Vector3dInterface acceleration = new Vector3d(0,0,0);
         if (i != j)
         {
+            // accelertaion that is created by 
             acceleration = (((j.vector3d.sub(i.vector3d)).mul(1/rCube))).mul(G * j.mass);
         }
-        else if (i == j)
+        else if (i == j && DEBUG)
         {
             System.out.println("E-E");
         }
@@ -43,6 +47,7 @@ public class Newton
     }
 
     /**
+    This method is the calculation of one step on the planets and add the 
      * @param planets array containing all the planets of the solar system
      * @param stepSize (seconds)
     */
@@ -50,15 +55,18 @@ public class Newton
     {
         //Reset the acceleration to 0
         Planet.accReset();
-
+        // itterate over all the planets
         for(int i = 0; i < planets.length; i++)
         {
+            // All other planets
             for(int j = 0; j< planets.length; j++)
             {
+                // if i planet and j planet are the NOT same  
                 if(i != j)
                 {
+                    // calculate the accelaration from the attraction of the two objects
                     Vector3dInterface acceleration = Newton.solve(planets[i], planets[j]);
-                    //Add F to acceleration of planet j
+                    //Add the calculated acceleration to acceleration of planet i
                     planets[i].accVector = (Vector3d)(planets[i].accVector.add(acceleration));
                 }
             }
@@ -67,12 +75,24 @@ public class Newton
         //Update the positions and velocities
         for (int k = 0; k < planets.length; k++)
         {
+            // the Velocity vector is first in line
             Vector3dInterface mul = planets[k].accVector.mul(stepSize);
             planets[k].velVector = (Vector3d)(planets[k].velVector.add(mul));
-
+            // followed by the position vector using the updated velocity
             mul = planets[k].velVector.mul(stepSize);
             planets[k].vector3d = (Vector3d)(planets[k].vector3d.add(mul));
         }
-        return false;
+        
+        if (planets[11].vector3d.dist(planets[8].vector3d) <= planets[8].radius)
+        {
+            // this case hits if the spacecraft has plowed into titan - since we are updateing 
+            // the intervals very frequently I assume that we will notice a hit.
+            return true;
+        }
+        else
+        {
+            // we currently return false since SpaceCraft and Titan have not crashed.
+            return false;
+        }
     }
 }
