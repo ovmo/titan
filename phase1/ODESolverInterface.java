@@ -50,12 +50,3 @@ public interface ODESolverInterface {
      */
     public StateInterface step(ODEFunctionInterface f, double t, StateInterface y, double h);
 }
-
-
-
-
-
-
-
-
-

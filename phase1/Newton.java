@@ -28,7 +28,7 @@ public class Newton {
         r = i.vector3d.dist(j.vector3d);
         rCube = Math.pow(r, 3);
         Vector3dInterface acceleration = new Vector3d(0,0,0);
-        if (/*j.name.equalsIgnoreCase("earth") &&*/ i != j)
+        if (i != j)
         {
             // System.out.println(i.vector3d.dist(j.vector3d));
             // System.out.println("j" + j.vector3d.toString());
@@ -71,15 +71,16 @@ public class Newton {
         // update the Positon and velocities
         for (int k = 0; k < planets.length; k++)
         {
-            // System.out.println(planets[k].name + ": " + planets[k].accVector);
-            Vector3dInterface mul = planets[k].velVector.mul(stepSize);
-            // System.out.println("Vel * step " + ((Vector3d) (mul)).toString());
-            planets[k].vector3d = (Vector3d)(planets[k].vector3d.add(mul));
-            // System.out.println(planets[k].name + " pos " + planets[k].vector3d.toString());
-            mul = planets[k].accVector.mul(stepSize);
+            Vector3dInterface mul = planets[k].accVector.mul(stepSize);
             // System.out.println("Acc * Step" + ((Vector3d) (mul)).toString());
             planets[k].velVector = (Vector3d)(planets[k].velVector.add(mul));
             // System.out.println(planets[k].velVector.toString());
+            
+            // System.out.println(planets[k].name + ": " + planets[k].accVector);
+            mul = planets[k].velVector.mul(stepSize);
+            // System.out.println("Vel * step " + ((Vector3d) (mul)).toString());
+            planets[k].vector3d = (Vector3d)(planets[k].vector3d.add(mul));
+            // System.out.println(planets[k].name + " pos " + planets[k].vector3d.toString());
         }
 
         // if (planets[planets.length - 1].radius + planets[8].radius >= planets[8].vector3d.dist(planets[planets.length-1].vector3d))

@@ -1,3 +1,5 @@
+/**
+*/
 public class SimpleTest 
 {
 	public static void main(String[] args) {
@@ -5,6 +7,6 @@ public class SimpleTest
 
 		Simple testing = new Simple ();
 
-		testing.calc(8);
+		testing.calc(8, 60000);
 	}
 }
