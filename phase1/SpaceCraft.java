@@ -1,7 +1,8 @@
 public class SpaceCraft
 {
 	private final int MAX_TAKEOFF = 60000;
-	private final int MIN_TAKEOFF = 11200;
+	private final double MIN_TAKEOFF = 11.186;
+	private final int MIN_REACH = 48000;
 	private int mass;
 	private int takeoffV;
 

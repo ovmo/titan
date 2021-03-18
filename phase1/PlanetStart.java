@@ -77,23 +77,16 @@ public class PlanetStart
 
 
 
-
-
-
-
-
-
-
 		Planet moon = new Planet ("Moon");
 		moon.mass = 7.349e+22;
 		moon.radius = 1737e+03;
 		moon.gravity = 1.62;
-		moon.positionX = -3.615638921529161e+10;
-		moon.positionY = -2.167633037046744e+11;
-		moon.positionZ = -3.687670305939779e+09;
-		moon.velocityX = 2.481551975121696e+04;
-		moon.velocityY = -1.816368005464070e+03;
-		moon.velocityZ = -6.467321619018108e+02;
+		moon.positionX = -1.472343904597218e+11;
+		moon.positionY = -2.822578361503422e+10;
+		moon.positionZ = 1.052790970065631e+07;
+		moon.velocityX = 4.433121605215677e+03;
+		moon.velocityY = -2.948453614110320e+04;
+		moon.velocityZ = 8.896598225322805e+01;
 		moon.vectors();
 		planets[4] = moon;
 
@@ -177,12 +170,12 @@ public class PlanetStart
 
 		Planet spaceCraft = new Planet ("SpaceCraft");
 		// Adding the Earths radius sonewhere = 6371e+3;
-		spaceCraft.mass = 100;
+		spaceCraft.mass = 15000;
 		spaceCraft.radius = 10;
 		spaceCraft.gravity = 1e-10;
-		spaceCraft.positionX = -1.471922101663588e+11;
-		spaceCraft.positionY = -2.860995816266412e+10;
-		spaceCraft.positionZ = 8.278183193596080e+06;
+		spaceCraft.positionX = 6371e+3 + -1.471922101663588e+11;
+		spaceCraft.positionY = 6371e+3 + -2.860995816266412e+10;
+		spaceCraft.positionZ = 6371e+3 + 8.278183193596080e+06;
 		spaceCraft.velocityX = 5.427193405797901e+03;
 		spaceCraft.velocityY = -2.931056622265021e+04;
 		spaceCraft.velocityZ = 6.575428158157592e-01;

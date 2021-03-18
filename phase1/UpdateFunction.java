@@ -12,7 +12,7 @@ public class UpdateFunction {
                     //j.Acc + (Newton.solve(i, j)*j.mass; //this will return a 3d vector F
                     Vector3dInterface F = Newton.solve(planets[i], planets[j]);
                     //add F to acceleration of planet j
-                    planets[j].accVector.add(F);
+                    planets[j].accVector = planets[j].accVector.add(F);
                 }
             }
         }

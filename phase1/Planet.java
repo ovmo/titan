@@ -26,7 +26,7 @@ public class Planet
 		accVector = new Vector3d(0,0,0);
 	}
 
-	public void accReset ()
+	public static void accReset ()
 	{
 		for (int i = 0; i < planets.length; i++)
 		{
