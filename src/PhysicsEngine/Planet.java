@@ -8,7 +8,7 @@ public class Planet
 
 	/**
 	 *Constructor
-	 *@param namePlanet name of the planet to be created
+	 *@param namePlanet represents the name of the planet to be created
 	*/
 	public Planet (String namePlanet)
 	{
@@ -17,7 +17,7 @@ public class Planet
 	}
 	
 	/**
-	 *Create the vector3d objects.
+	 * Create the vector3d objects.
 	*/
 	public void vectors ()
 	{
@@ -27,7 +27,7 @@ public class Planet
 	}
 
 	/**
-	 * Reset the acceleration of the planet
+	 *  Resets the acceleration of the planet
 	 */
 	public static void accReset ()
 	{
@@ -36,22 +36,22 @@ public class Planet
 			planets[i].accVector = new Vector3d(0,0,0);
 		}
 	}
-
+	//the following variables represent all of the required variables to store velocity, position and acceleration values for each solar system object. 
 	public String name;
 	public int step;
 
 	public double mass;
 	public double radius;
 	public double gravity;
-
+	//variables store the velocity in terms of a 3D model. These variables are only initialized and called  once.
 	public double velocityX;
 	public double velocityY;
 	public double velocityZ;
-
+	//variables store position in terms of a 3D model. these variables are also initialized and called once.
 	public double positionX;
 	public double positionY;
 	public double positionZ;
-
+	//variables store vectors in terms of a 3D model. These variables are then used in the vectors method. 
 	public Vector3d vector3d;
 	public Vector3d velVector;
 	public Vector3d accVector;
