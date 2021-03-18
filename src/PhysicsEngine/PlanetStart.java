@@ -3,7 +3,7 @@ package PhysicsEngine;
 import java.util.*;
 /**
 * This class creates the solar constellation of the system on 01-04-2020
-* to kick start the program and find the best path to Titian.
+* to kick start the program and find the best path to Titan.
 */
 public class PlanetStart
 {
@@ -16,6 +16,8 @@ public class PlanetStart
 	*/
 	public PlanetStart()
 	{
+		
+	//This constructor describes the objects and their positions and velocities relative to each other in a fixed Planet array.
 		planets = new Planet[12];
 		Planet sun = new Planet("Sun");
 		sun.mass = 1.988500e+30;
@@ -52,7 +54,7 @@ public class PlanetStart
 		venus.positionZ = 6.131453014410347e+09;
 		venus.velocityX = -1.726404287724406e+04;
 		venus.velocityY = -3.073432518238123e+04;
-		venus.velocityX = 5.741783385280979e-04;
+		venus.velocityZ = 5.741783385280979e-04;
 		venus.vectors();
 		planets[2] = venus;
 
