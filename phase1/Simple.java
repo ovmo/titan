@@ -1,6 +1,8 @@
-import java.lang.Math;
 import titan.Vector3dInterface;
-public class Simple 
+
+import java.lang.Math;
+
+public class Simple
 {
 	static final boolean DEBUG = true;
 	Planet[] planets;
@@ -15,6 +17,7 @@ public class Simple
 	{
 		if (DEBUG)
 		{
+			//initial position of titan
 			System.out.println("initial start Titan [8]: " + planets[8].vector3d.toString());
 			System.out.println("initial start SpaceCraft [11]: " + planets[11].vector3d.toString());
 		}
@@ -23,6 +26,8 @@ public class Simple
 		
 		int cap = 31536001; // one year in seconds
 		int cap1 = 31536001; // one year in seconds
+
+		//this loop is for getting position of titan
 		for (int d = 0; d < cap1; d += stepSize)
 		{
 			if (Newton.newtonLoop(spacePlanets, stepSize))
@@ -32,13 +37,36 @@ public class Simple
 			}
 			else 
 			{
-				if (DEBUG && (d % 864000) == 0)
+				if(DEBUG && (d == 0)) //position at beginning
+				{
+					System.out.println("titan " + spacePlanets[8].vector3d.toString());
+					//position of earth at half a year
+					System.out.println("earth " + spacePlanets[3].vector3d.toString());
+					//euclidian distance between earth and titan
+					System.out.println("dist vect " + spacePlanets[8].vector3d.dist(spacePlanets[3].vector3d));
+				}
+				else if (DEBUG && (d % (cap1/2)) == 0) //getting position at half a year
 				{
 					// System.out.print("" + (d/86400) + ", ");
 					// System.out.print("SpaceCraft " + planets[11].vector3d.dist(planets[8].vector3d) + ", Earth ");
 					// System.out.println(planets[3].vector3d.dist(planets[8].vector3d));
-					System.out.print((spacePlanets[8].vector3d.sub(spacePlanets[11].vector3d)).toString());
-					System.out.println (", Norm: " + (spacePlanets[8].vector3d.sub(spacePlanets[11].vector3d)).norm());
+//					System.out.print((spacePlanets[8].vector3d.sub(spacePlanets[11].vector3d)).toString());
+//					System.out.println (", Norm: " + (spacePlanets[8].vector3d.sub(spacePlanets[11].vector3d)).norm());
+					//position of titan at half a year
+					System.out.println("titan " + spacePlanets[8].vector3d.toString());
+					//position of earth at half a year
+					System.out.println("earth " + spacePlanets[3].vector3d.toString());
+					//euclidian distance between earth and titan
+					System.out.println("dist vect " + spacePlanets[8].vector3d.dist(spacePlanets[3].vector3d));
+				}
+				else if(DEBUG && (d % (cap1)) == 0) //getting position after one year
+				{
+					//position of titan at half a year
+					System.out.println("titan " + spacePlanets[8].vector3d.toString());
+					//position of earth at half a year
+					System.out.println("earth " + spacePlanets[3].vector3d.toString());
+					//euclidian distance between earth and titan
+					System.out.println("dist vect " + spacePlanets[8].vector3d.dist(spacePlanets[3].vector3d));
 				}
 			}
 		}
