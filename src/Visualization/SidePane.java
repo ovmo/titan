@@ -63,14 +63,19 @@ public class SidePane
     */
     public Group getPane()
     {
-        addLabel("Start Date: ", 40, 100, Color.RED);
+        addLabel("Start Date: ", 40, 100, Color.BLUE);
         addLabel("01-04-2020", 40, 125, Color.BLACK);
-        addLabel("End Date: ", 40, 200, Color.RED);
-        addLabel("01-04-2020", 40, 225, Color.BLACK);
-        addLabel("Distance to Titan: ", 40, 300, Color.RED);
-        addLabel("0 m", 40, 325, Color.BLACK);
-        addLabel("Mass of the Probe: ", 40, 400, Color.RED);
-        addLabel("15000 kg", 40, 425, Color.BLACK);
+        addLabel("End Date: ", 40, 200, Color.BLUE);
+        addLabel("01-04-2021", 40, 225, Color.BLACK);
+        addLabel("Mass of the Probe: ", 40, 300, Color.BLUE);
+        addLabel("15000 kg", 40, 325, Color.BLACK);
+        addLabel("Coordinates of Titan: ", 40, 400, Color.BLUE);
+        addLabel("X: ", 35, 425, Color.BLUE);
+        addLabel("6.333e+11 km", 60, 425, Color.BLACK);
+        addLabel("Y: ", 35, 450, Color.BLUE);
+        addLabel("-1.352e+12 km", 60, 450, Color.BLACK);
+        addLabel("Z: ", 35, 475, Color.BLUE);
+        addLabel("-2.135e+09 km", 60, 475, Color.BLACK);
         addLabel("□ 1 unit = 1 AU", 70, 850, Color.WHITE);
         return sidePaneGroup;
     }
