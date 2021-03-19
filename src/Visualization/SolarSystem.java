@@ -8,39 +8,41 @@ import javafx.stage.Stage;
 import javafx.scene.layout.Pane;
 import javafx.scene.input.ScrollEvent;
 
-public class SolarSystem extends Application
-{
+public class SolarSystem extends Application {
 
     @Override
-    public void start(Stage stage)
-    {
+    public void start(Stage stage) {
 
-        stage.setTitle("Visualization.SolarSystem");
+        stage.setTitle("SolarSystem");
 
-        BorderPane root = new BorderPane();             //Set border layout to the root
+        Pane center = new Pane();
+        center.setStyle("-fx-background-color:black");
+        Pane right = new Pane();
+
+        BorderPane root = new BorderPane();             //Border layout
         Scene scene = new Scene(root, Color.BLACK);
-
         SolarSystemPane planets = new SolarSystemPane();
         SidePane panel = new SidePane();
 
         //Add solar system (CENTER) and side pane (RIGHT) to root
-        Pane center = new Pane();
-            center.setStyle("-fx-background-color:black");
-            center.getChildren().add(planets.getPane());
-            root.setCenter(center);
+        //center.getChildren().add(planets);
+        center.getChildren().add(planets.getPane());
+        right.getChildren().add(panel.getPane());
 
-        Pane right = new Pane();
-            right.getChildren().add(panel.getPane());
-            root.setRight(right);
+        root.setCenter(center);
+        root.setRight(right);
 
-        //Control mouse events on pane
-        SceneGestures sceneGestures = new SceneGestures(planets.getPane());
+        //Control mouse movements on pane
+        SceneGestures sceneGestures = new SceneGestures(planets.getZoomPane(), planets);
         center.addEventFilter(ScrollEvent.ANY, sceneGestures.getOnScrollEventHandler());
         center.setOnMousePressed(sceneGestures.getOnEnteredEventHandler());
         center.setOnMouseDragged(sceneGestures.getOnDragEventHandler());
+
+        planets.movement.move();
 
         stage.setScene(scene);
         stage.setFullScreen(true);
         stage.show();
     }
+
 }

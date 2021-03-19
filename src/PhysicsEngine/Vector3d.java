@@ -104,7 +104,7 @@ public class Vector3d implements Vector3dInterface {
     
     /**
     multiplying one Vector with another
-    @param other -> the one to be multiplied by
+    @param scalar -> the one to be multiplied by
     @return the sum of both vetors (otehr and This)
     */
     @Override
@@ -117,9 +117,9 @@ public class Vector3d implements Vector3dInterface {
     }
     
     /**
-    deviding one Vector by another
-    @param other -> the one to be devided by
-    @return the sum of both vetors (otehr and This)
+    dividing one Vector by another
+    @param scalar -> the one to be divided by
+    @return the sum of both vectors (other and this)
     */
     public Vector3dInterface div(double scalar) {
         Vector3d product = new Vector3d();
@@ -137,7 +137,7 @@ public class Vector3d implements Vector3dInterface {
     //Euclidean form of the vector
     /**
     eucledian form of the vector
-    @return the eucledian form (as double)
+    @return the euclidean form (as double)
     */
     @Override
     public double norm() {
@@ -148,15 +148,23 @@ public class Vector3d implements Vector3dInterface {
     /**
     distance of the two vectors
     @param other -> the other vector
-    @return the eucledian distance between this and other
+    @return the euclidean distance between this and other
     */
     @Override
     public double dist(Vector3dInterface other) {
         return Math.sqrt((Math.pow((this.x - other.getX()), 2) + Math.pow((this.y - other.getY()), 2) + Math.pow(this.z - other.getZ(),2)));
     }
+
+    public Vector3d crossProduct(Vector3d other){
+        Vector3d crossProduct = new Vector3d();
+        crossProduct.setX(this.y * other.z - this.z * other.x);
+        crossProduct.setY(this.z * other.x - this.x * other.y);
+        crossProduct.setZ(this.x * other.y - this.y * other.x);
+        return crossProduct;
+    }
     
     /**
-    a sring representation of the Vector
+    a string representation of the Vector
     @return the String representation of the vecotr
     */
     @Override

@@ -1,7 +1,7 @@
 package PhysicsEngine;
 
 public class SpaceCraft {
-    // initial constant vairbales, where the velocity v of the spacecraft must be: 48 km/s <= v <= 60 km/s
+    // initial constant variables, where the velocity v of the spacecraft must be: 48 km/s <= v <= 60 km/s
     private final double MAX_TAKEOFF = 60000;
     private final double MIN_TAKEOFF = 11.186; // MIN_TAKEOFF represents the minimum required escape velocity from Earth at a distance of 80km from the Earth's surface.
     private final double MIN_REACH = 48000;

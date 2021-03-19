@@ -30,13 +30,13 @@ public class Newton
         {
             System.out.println("Planet1: " + i.name + ", Planet2: " + j.name);
         }
-        // finding the bottom of the devision
+        // finding the bottom of the division
         r = i.vector3d.dist(j.vector3d);
         rCube = Math.pow(r, 3);
         Vector3dInterface acceleration = new Vector3d(0,0,0);
         if (i != j)
         {
-            // accelertaion that is created by 
+            // acceleration that is created by
             acceleration = (((j.vector3d.sub(i.vector3d)).mul(1/rCube))).mul(G * j.mass);
         }
         else if (i == j && DEBUG)
@@ -55,16 +55,16 @@ public class Newton
     {
         //Reset the acceleration to 0
         Planet.accReset();
-        // itterate over all the planets
+        // iterate over all the planets
         for(int i = 0; i < planets.length; i++)
         {
-            // All other planets
+            // all other planets
             for(int j = 0; j< planets.length; j++)
             {
                 // if i planet and j planet are the NOT same  
                 if(i != j)
                 {
-                    // calculate the accelaration from the attraction of the two objects
+                    // calculate the acceleration from the attraction of the two objects
                     Vector3dInterface acceleration = Newton.solve(planets[i], planets[j]);
                     //Add the calculated acceleration to acceleration of planet i
                     planets[i].accVector = (Vector3d)(planets[i].accVector.add(acceleration));
@@ -80,12 +80,16 @@ public class Newton
             planets[k].velVector = (Vector3d)(planets[k].velVector.add(mul));
             // followed by the position vector using the updated velocity
             mul = planets[k].velVector.mul(stepSize);
-            planets[k].vector3d = (Vector3d)(planets[k].vector3d.add(mul));
+            Vector3d posVector = (Vector3d)(planets[k].vector3d.add(mul));
+            //updating current posVector of planets
+            planets[k].vector3d = posVector;
+            //adding this vector to orbit of the planet
+            //planets[k].orbit.add(posVector);
         }
         
         if (planets[11].vector3d.dist(planets[8].vector3d) <= planets[8].radius)
         {
-            // this case hits if the spacecraft has plowed into titan - since we are updateing 
+            // this case hits if the spacecraft has plowed into titan - since we are updating
             // the intervals very frequently I assume that we will notice a hit.
             return true;
         }
