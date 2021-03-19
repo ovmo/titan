@@ -65,9 +65,11 @@ public class SidePane
     */
     public Group getPane()
     {
-        addLabel("Date: ", 40, 100, Color.RED);
+        addLabel("Start Date: ", 40, 100, Color.RED);
         addLabel("01-04-2020", 40, 125, Color.BLACK);
-        addLabel("Distance from Earth: ", 40, 300, Color.RED);
+        addLabel("End Date: ", 40, 200, Color.RED);
+        addLabel("01-04-2020", 40, 225, Color.BLACK);
+        addLabel("Distance to Titan: ", 40, 300, Color.RED);
         addLabel("0 m", 40, 325, Color.BLACK);
         addLabel("Distance from Titan: ", 40, 500, Color.RED);
         addLabel("143350707,46 m", 40, 525, Color.BLACK);
