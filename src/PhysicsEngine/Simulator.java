@@ -19,6 +19,7 @@ public class Simulator
 
 	/**
 	 * method to test best possible initial velocity and position of the spacecraft
+	 * just for testing purposes
 	 * @param stepSize
 	 * @param initV
 	 */
@@ -36,7 +37,7 @@ public class Simulator
 //		int cap1 = 31536001; //One year in seconds
 //
 ////		//This loop gets the position of PhysicsEngine.titan
-//		//just for testing purposes
+//
 ////		for (int d = 0; d < cap1; d += stepSize)
 ////		{
 ////			if (Newton.newtonLoop(spacePlanets, stepSize))
@@ -87,10 +88,6 @@ public class Simulator
 			System.out.println("initial start Titan [8]: " + planets[8].vector3d.toString());
 			System.out.println("initial start SpaceCraft [11]: " + planets[11].vector3d.toString());
 
-			//initial dist between earth and sun
-			System.out.println("euclidean earth to sun: " + planets[3].vector3d.dist(planets[0].vector3d));
-			System.out.println("euclidean earth to saturn: " + planets[3].vector3d.dist(planets[7].vector3d));
-			System.out.println("euclidean earth to moon: " + planets[3].vector3d.dist(planets[4].vector3d));
 		}
 		for (int d = 0; d < cap; d += stepSize)
 		{
@@ -102,16 +99,18 @@ public class Simulator
 			}
 			else
 			{
-				if (DEBUG && (d % 864000) == 0) // 864000 represents an interval of 10 days, in terms of seconds. getting an update for the position
+				if (DEBUG && (d % 864000/2) == 0) // 864000 represents an interval of 10 days, in terms of seconds. getting an update for the position
 				{
-					//position of the spacecraft
-//					System.out.print((planets[11].vector3d.toString()));
-//					System.out.println (", euclidean distance: " + planets[11].vector3d.dist(planets[8].vector3d));
-					System.out.println(planets[0].vector3d.toString());
+					//position of the spacecraft and distance to titan
+					System.out.print("position of the probe " + (planets[11].vector3d.toString()));
+					System.out.println (", euclidean distance: " + planets[11].vector3d.dist(planets[8].vector3d));
+
 					//adding positions to orbits
 					for(int i = 0; i < planets.length; i++){
 						planets[i].orbit.add(planets[i].vector3d);
 					}
+
+					planets[11].distances.add(planets[11].vector3d.dist(planets[8].vector3d));
 				}
 			}
 		}

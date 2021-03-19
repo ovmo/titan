@@ -18,7 +18,7 @@ public class StartPhysicsEngine
 		//launching
 		Simulator launch = new Simulator();
 
-		if(launch.launch(8, 60000)){
+		if(launch.launch(8, 57000)){
 
 //			System.out.println(Planet.planets[1].orbit.size());
 //			System.out.println(Planet.planets[1].orbit.get(1));

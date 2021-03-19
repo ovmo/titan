@@ -31,6 +31,8 @@ public class Planet
 	//arrayList to store positions over time
 	ArrayList<Vector3d> orbit = new ArrayList<Vector3d>();
 
+	ArrayList distances = new ArrayList<>();
+
 	//array to store x-Coordinates over time
 	double[] orbitX;
 

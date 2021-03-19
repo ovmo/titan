@@ -33,16 +33,11 @@ public class MovingPlanets {
 
     public void move(){
 
-        //add some planets
-        //do this for all planets
-
         //get length for orbit array
         int n = planets[1].getOrbitX().length;
 
         //set step size
         int step = 1;
-
-        System.out.println("center " + solarSystem.xCenter + " " + solarSystem.yCenter);
 
         SequentialTransition movementSun = new SequentialTransition();
 
@@ -97,10 +92,6 @@ public class MovingPlanets {
             t.setDuration(Duration.millis(duration));
             t.setToX(Math.round(solarSystem.xCenter + solarSystem.unitSize * planets[3].getOrbitX()[i]) - earthX);
             t.setToY((Math.round(solarSystem.yCenter + solarSystem.unitSize * planets[3].getOrbitY()[i]) - earthY));
-            System.out.println("x earth goes to AU " + planets[3].getOrbitX()[i]);
-            System.out.println("x earth goes to " + (solarSystem.xCenter + solarSystem.unitSize * planets[3].getOrbitX()[i]));
-            System.out.println("y earth goes to AU " + planets[3].getOrbitY()[i]);
-            System.out.println("y earth goes to " + (solarSystem.yCenter + solarSystem.unitSize * planets[3].getOrbitY()[i]));
             t.setNode(planetObj[3]);
             orbitEarth.getChildren().add(t);
         }
@@ -212,9 +203,5 @@ public class MovingPlanets {
         orbitTitan.play();
         trajectorySpacecraft.play();
 
-//        System.out.println(solarSystem.unitSize);
-//        System.out.println(solarSystem.xCenter);
-//
-//        System.out.println("earth " + planetObj[3].getCenterX());
     }
 }

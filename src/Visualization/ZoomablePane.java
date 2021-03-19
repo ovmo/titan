@@ -1,5 +1,6 @@
 package Visualization;
 
+import Visualization.SolarSystemPane;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.EventHandler;
@@ -19,7 +20,6 @@ class ZoomablePane extends Pane {
         // add scale transform
         scaleXProperty().bind(myScale);
         scaleYProperty().bind(myScale);
-
 
     }
 
@@ -100,17 +100,9 @@ class SceneGestures {
             sceneDragContext.mouseAnchorX = event.getX();
             sceneDragContext.mouseAnchorY = event.getY();
 
-            sceneDragContext.translateAnchorX = canvas.getTranslateX();
-            sceneDragContext.translateAnchorY = canvas.getTranslateY();
-
             sceneDragContext.translateAnchorX = solarSystem.getTranslateX();
             sceneDragContext.translateAnchorY = solarSystem.getTranslateY();
 
-            System.out.println("Anchor: " + event.getSceneX());
-            System.out.println("Anchor: " + event.getSceneY());
-
-            //            double startX = event.getX();
-            //            double startY = event.getY();
 
             event.consume();
         }
@@ -133,7 +125,6 @@ class SceneGestures {
             t.setX(translateX/8);
             t.setY(translateY/8);
 
-            canvas.getTransforms().add(t);
             solarSystem.getTransforms().add(t);
 
             event.consume();
@@ -163,17 +154,17 @@ class SceneGestures {
 
             double f = (scale / oldScale)-1;
 
+//            double dx = (event.getSceneX() - (canvas.getBoundsInParent().getWidth()/2 + canvas.getBoundsInParent().getMinX()));
+//            double dy = (event.getSceneY() - (canvas.getBoundsInParent().getHeight()/2 + canvas.getBoundsInParent().getMinY()));
+
             double dx = (event.getSceneX() - (solarSystem.getBoundsInParent().getWidth()/2 + solarSystem.getBoundsInParent().getMinX()));
             double dy = (event.getSceneY() - (solarSystem.getBoundsInParent().getHeight()/2 + solarSystem.getBoundsInParent().getMinY()));
 
-//            double dx = (event.getSceneX() - (solarSystem.getBoundsInParent().getWidth()/2 + solarSystem.getBoundsInParent().getMinX()));
-//            double dy = (event.getSceneY() - (solarSystem.getBoundsInParent().getHeight()/2 + solarSystem.getBoundsInParent().getMinY()));
-
-            canvas.setScale(scale);
+            //canvas.setScale(scale);
             solarSystem.setScale(scale);
 
             //note: pivot value must be untransformed, i. e. without scaling
-            canvas.setPivot(f*dx, f*dy);
+            //canvas.setPivot(f*dx, f*dy);
             solarSystem.setPivot(f*dx, f*dy);
 
             System.out.println("zoom");

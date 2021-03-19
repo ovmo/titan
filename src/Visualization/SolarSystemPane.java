@@ -72,9 +72,7 @@ public class SolarSystemPane extends Pane {
         space.setPrefSize(width, height);
         space.setStyle("-fx-background-color:black;");
 
-        //other way round solarSystem children of space!!
-        //solarSystem.getChildren().add(space);
-        space.getChildren().add(this);
+        solarSystem.getChildren().add(space);
 
         //Coordinates of the center
         xCenter = space.getPrefWidth()/2;   //xCenter = 575.0
@@ -84,7 +82,8 @@ public class SolarSystemPane extends Pane {
 
         planets = Planet.planets;
 
-        movement = new MovingPlanets(100, this);
+        //init movement class with duration of each movement and pane
+        movement = new MovingPlanets(200, this);
     }
 
     /**
@@ -109,7 +108,6 @@ public class SolarSystemPane extends Pane {
         }
 
         solarSystem.getChildren().add(grid);
-        //space.getChildren().add(grid);
     }
 
     public Canvas getGrid() { return grid; }
@@ -145,6 +143,7 @@ public class SolarSystemPane extends Pane {
        labelSun.setTextFill(Color.WHITE);           //Set label color
        labelSun.setTranslateX(xSun - 3);            //Setting the position
        labelSun.setTranslateY(ySun - 15);
+
 
        solarSystem.getChildren().add(sun);
        circles[0] = sun;
@@ -203,7 +202,7 @@ public class SolarSystemPane extends Pane {
        circles[3] = earth;
    }
 
-   public Circle getEarth() {return earth; }
+//   public Circle getEarth() {return earth; }
 
    public void addMoon(double x, double y) {
        double xMoon = xCenter + unitSize * x;
@@ -292,13 +291,6 @@ public class SolarSystemPane extends Pane {
        ImagePattern imagePatternSpacecraft = new ImagePattern(imageSpacecraft);
        spacecraft.setFill(imagePatternSpacecraft);
 
-       //Rotation of the spacecraft
-       Rotate rotate = new Rotate();
-       rotate.setAngle(30);                //Angle for the rotation
-       rotate.setPivotX(x - 2);            //Setting pivot points for the rotation (The coordinates are shifted to fit the rotation)
-       rotate.setPivotY(y + 5);
-       //spacecraft.getTransforms().add(rotate);
-
        solarSystem.getChildren().add(spacecraft);
 
    }
@@ -347,6 +339,7 @@ public class SolarSystemPane extends Pane {
     public double getScale() {
         return myScale.get();
     }
+
 
 
 }
