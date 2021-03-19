@@ -83,8 +83,6 @@ public class Newton
             Vector3d posVector = (Vector3d)(planets[k].vector3d.add(mul));
             //updating current posVector of planets
             planets[k].vector3d = posVector;
-            //adding this vector to orbit of the planet
-            //planets[k].orbit.add(posVector);
         }
         
         if (planets[11].vector3d.dist(planets[8].vector3d) <= planets[8].radius)
