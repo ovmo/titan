@@ -3,7 +3,6 @@ package Visualization;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.control.Button;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -39,31 +38,6 @@ public class SidePane
     }
 
     /**
-        Add a new button to the pane
-        @param x x-coordinate of the button on the pane
-        @param y y-coordinate of the button on the pane
-     */
-    public void addButton(double x, double y)
-    {
-        Button button = new Button();
-
-        Image imageButton = new Image(getClass().getResourceAsStream("/Visualization/Resources/Button.png"));
-        ImageView imageViewButton = new ImageView(imageButton);
-
-        imageViewButton.setFitHeight(80);
-        imageViewButton.setPreserveRatio(true);
-        //location of the button
-        button.setTranslateX(x);
-        button.setTranslateY(y);
-        //Size of the button
-        button.setPrefSize(80, 80);
-        button.setStyle("-fx-background-color: gray;");
-        button.setGraphic(imageViewButton);
-
-        sidePaneGroup.getChildren().add(button);
-    }
-
-    /**
      * Add a new label to the pane
      * @param s name of the label
      * @param x x-coordinate of the label
@@ -91,13 +65,12 @@ public class SidePane
     */
     public Group getPane()
     {
-        addButton(100, 40);
-        addLabel("Date: ", 40, 200, Color.RED);
-        addLabel("01-04-2020", 40, 225, Color.BLACK);
-        addLabel("Distance from Earth: ", 40, 400, Color.RED);
-        addLabel("0 m", 40, 425, Color.BLACK);
-        addLabel("Distance from Titan: ", 40, 600, Color.RED);
-        addLabel("143350707,46 m", 40, 625, Color.BLACK);
+        addLabel("Date: ", 40, 100, Color.RED);
+        addLabel("01-04-2020", 40, 125, Color.BLACK);
+        addLabel("Distance from Earth: ", 40, 300, Color.RED);
+        addLabel("0 m", 40, 325, Color.BLACK);
+        addLabel("Distance from Titan: ", 40, 500, Color.RED);
+        addLabel("143350707,46 m", 40, 525, Color.BLACK);
         addLabel("□ 1 unit = 1 AU", 70, 850, Color.WHITE);
         return sidePaneGroup;
     }
