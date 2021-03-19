@@ -3,7 +3,6 @@ package Visualization;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.control.Button;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -66,12 +65,12 @@ public class SidePane
     */
     public Group getPane()
     {
-        addLabel("Date: ", 40, 200, Color.RED);
-        addLabel("01-04-2020", 40, 225, Color.BLACK);
-        addLabel("Distance from Earth: ", 40, 400, Color.RED);
-        addLabel("0 m", 40, 425, Color.BLACK);
-        addLabel("Distance from Titan: ", 40, 600, Color.RED);
-        addLabel("143350707,46 m", 40, 625, Color.BLACK);
+        addLabel("Date: ", 40, 100, Color.RED);
+        addLabel("01-04-2020", 40, 125, Color.BLACK);
+        addLabel("Distance from Earth: ", 40, 300, Color.RED);
+        addLabel("0 m", 40, 325, Color.BLACK);
+        addLabel("Distance from Titan: ", 40, 500, Color.RED);
+        addLabel("143350707,46 m", 40, 525, Color.BLACK);
         addLabel("□ 1 unit = 1 AU", 70, 850, Color.WHITE);
         return sidePaneGroup;
     }
