@@ -10,12 +10,7 @@ public class StartPhysicsEngine
 	public static void main(String[] args) {
 
 		PlanetStart start = new PlanetStart();
-		
-		/*
-		 * Testing
-		 * Simple testing = new Simple ();
-		 * testing.calc(8, 60000);
-		*/
+	
 
 		//Launch spacecraft
 		Simulator launch = new Simulator();
