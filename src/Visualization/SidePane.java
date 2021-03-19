@@ -71,8 +71,8 @@ public class SidePane
         addLabel("01-04-2020", 40, 225, Color.BLACK);
         addLabel("Distance to Titan: ", 40, 300, Color.RED);
         addLabel("0 m", 40, 325, Color.BLACK);
-        addLabel("Distance from Titan: ", 40, 500, Color.RED);
-        addLabel("143350707,46 m", 40, 525, Color.BLACK);
+        addLabel("Mass of the Probe: ", 40, 400, Color.RED);
+        addLabel("15000 kg", 40, 425, Color.BLACK);
         addLabel("□ 1 unit = 1 AU", 70, 850, Color.WHITE);
         return sidePaneGroup;
     }
