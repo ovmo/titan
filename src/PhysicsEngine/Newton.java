@@ -39,10 +39,7 @@ public class Newton
             // acceleration that is created by
             acceleration = (((j.vector3d.sub(i.vector3d)).mul(1/rCube))).mul(G * j.mass);
         }
-        else if (i == j && DEBUG)
-        {
-            System.out.println("E-E");
-        }
+
         return acceleration;
     }
 
