@@ -16,8 +16,8 @@ public class State implements StateInterface{
         PlanetStart p = new PlanetStart();
 
         for (int i = 0; i < 10; i++) {
-            matrix[i][0] = new Vector3d(p.planets[i].velocityX, p.planets[i].velocityY, p.planets[i].velocityZ);    //Initialize positions
-            matrix[i][1] = new Vector3d(p.planets[i].positionX, p.planets[i].positionY, p.planets[i].positionZ);    //Initialize velocities
+            matrix[i][0] = new Vector3d(p.planets[i].velocityX, p.planets[i].velocityY, p.planets[i].velocityZ);    //Initialize vel
+            matrix[i][1] = new Vector3d(p.planets[i].positionX, p.planets[i].positionY, p.planets[i].positionZ);    //Initialize pos
         }
     }
 
