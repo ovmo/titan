@@ -5,7 +5,7 @@
 
 ### SetUp
 
-Starting with using [JavaFX][https://openjfx.io]. Need to Download from [here] [https://openjfx.io].
+Starting with using [JavaFX](https://openjfx.io). Need to Download from [here](https://openjfx.io).
 
 after Running the program with the Class ./src/PhysicsEngine/StartPhysicsEngine
 
