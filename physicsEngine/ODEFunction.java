@@ -3,9 +3,14 @@ import titan.RateInterface;
 import titan.StateInterface;
 import titan.Vector3dInterface;
 
+/**
+ * class calculating acceleration using Newton's Law of Gravitation
+ *
+ * @author Leo
+ */
 public class ODEFunction implements ODEFunctionInterface{
 
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = false;
     private static final double G = 6.6743015e-11;  //Gravitational constant
 
     /**
@@ -26,24 +31,32 @@ public class ODEFunction implements ODEFunctionInterface{
     @Override
     public RateInterface call(double t, StateInterface y) {
 
-        //return rate of change that is acceleration
-        //apply Newton's Law
-
-        //new Rate (containing acc for all objects)
+        //new Rate (containing acceleration for all objects)
         Rate rate = new Rate();
+
+        if(DEBUG){
+            System.out.println("\nODEFunction - rate before update\n" + rate.toString());
+        }
 
         //iterate over all objects
         for(int i = 0; i < Planet.planets.length; i++) {
             //all other objects
             for (int j = 0; j < Planet.planets.length; j++) {
-                //if i planet and j planet are not the same
                 if (i != j) {
                     //calculate acceleration from the attraction of two objects
-                    Vector3d acc = (((y[j][2].sub(y[i][2])).mul(1 / (Math.pow(y[i][2].dist(y[j][2]), 3))))).mul(G * Planet.planets[j].mass);
+                    Vector3d acc = (Vector3d) (((((State) y).getPos(j).sub(((State) y).getPos(i))).mul(1 / (Math.pow(((State) y).getPos(i).dist(((State) y).getPos(j)), 3))))).mul(G * Planet.planets[j].mass);
                     //add calculated acc to total acceleration of object i
                     rate.add(i, acc);
+                    if(DEBUG){
+                        System.out.println("ODEFunction - acc " + acc.toString());
+                        System.out.println("ODEFunction - rate " + rate.get(i).toString());
+                    }
                 }
             }
+        }
+
+        if(DEBUG){
+            System.out.println("\nODEFunction - rate after update\n" + rate.toString());
         }
         return rate;
     }

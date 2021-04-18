@@ -2,45 +2,77 @@ import titan.RateInterface;
 import titan.StateInterface;
 import titan.Vector3dInterface;
 
+/**
+ * data structure to store the state of the solar system
+ *
+ * @author Leo, Chiara
+ */
 public class State implements StateInterface{
 
-    Vector3dInterface[][] matrix;      //2x11 array (9 planets (10 with probe), 2 properties - vel, pos)
+    public static boolean DEBUG = false;
+    Vector3dInterface[][] state; //2x12 array (11 planets (11 with probe), 2 properties - vel, pos)
 
-    //Constructor
+
+    //constructor
     public State() {
+        //initialize empty array
+        state = new Vector3d[Planet.planets.length][2];
     }
 
-    //Initialize the first state
+    //initialize the first state
     public void initializeState() {
-        matrix = new Vector3d[11][2];
-        PlanetStart p = new PlanetStart();
 
-        for (int i = 0; i < 11; i++) {
-            matrix[i][0] = new Vector3d(p.planets[i].velocityX, p.planets[i].velocityY, p.planets[i].velocityZ);    //Initialize vel
-            matrix[i][1] = new Vector3d(p.planets[i].positionX, p.planets[i].positionY, p.planets[i].positionZ);    //Initialize pos
+        for (int i = 0; i < state.length; i++) {
+            state[i][0] = Planet.planets[i].velVector;    //Initialize vel
+            state[i][1] = Planet.planets[i].posVector;    //Initialize pos
+
+            if(DEBUG){
+                System.out.println("State - initState " + Planet.planets[i].name + " " + state[i][1]);
+            }
         }
     }
 
-    //Create new state after the update
-    // new state newState
-    // for (i in state) - loop through planets
-    // update vel: state[i][1] = state[i][1].addMul(step, rate[i]
-    // update pos: state[i][2] = state[i][2].addMul(step, state[i][1]
     public StateInterface addMul(double step, RateInterface rate) {
-        StateInterface newState = new State();
 
-        for (int i = 0; i < 11; i++) {
-            matrix[i][0] = matrix[i][0].addMul(step, rate.get(i));      //Update vel
-            matrix[i][1] = matrix[i][1].addMul(step, matrix[i][0]);     //Update pos
+        //create new state
+        State newState = new State();
+
+        //for all objects
+        for (int i = 0; i < state.length; i++) {
+            newState.addVel(i, state[i][0].addMul(step, ((Rate) rate).get(i))); //update velocity
+            newState.addPos(i, state[i][1].addMul(step, newState.getVel(i))); //update position
+        }
+
+        if(DEBUG){
+            System.out.println("State - position after update " + newState.getPos(3));
+            System.out.println(("State - velocity after update " + newState.getVel(3)));
         }
         return newState;
+
+    }
+
+    public void addPos(int i, Vector3dInterface pos){
+        state[i][1] = pos;
+    }
+
+    public void addVel(int i, Vector3dInterface vel){
+        state[i][0] = vel;
+    }
+
+    public Vector3dInterface getPos(int i){
+        return state[i][1];
+    }
+
+    public Vector3dInterface getVel(int i){
+        return state[i][0];
     }
 
     public String toString() {
         String str = "";
-        for (int i = 0; i < 11; i++) {
-            str += "Vel: " + matrix[i][0].toString() + " Pos: " + matrix[i][1].toString();
+        for (int i = 0; i < state.length; i++) {
+            str += i + " vel: " + state[i][0].toString() + " pos: " + state[i][1].toString() + "\n";
         }
         return str;
     }
+
 }

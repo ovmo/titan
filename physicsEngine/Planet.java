@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 /**
  * class to store all relevant information about an object in the solar system
+ *
+ * @author Leo, Oscar
  */
 public class Planet
 {
-
-    //the following variables represent all of the required variables to store velocity, position and acceleration values for each solar system object.
     public String name;
     public int step;
 
