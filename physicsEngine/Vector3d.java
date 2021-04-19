@@ -1,13 +1,21 @@
 import titan.RateInterface;
 import titan.StateInterface;
 
-public class Vector3d implements titan.Vector3dInterface, StateInterface, RateInterface {
+/**
+ * class implementing a 3d Vector data structure
+ *
+ * @author Leo
+ */
+public class Vector3d implements titan.Vector3dInterface {
 
     double x;
     double y;
     double z;
 
     public Vector3d(){
+        this.x = 0;
+        this.y = 0;
+        this.z = 0;
     }
 
     public Vector3d(double x, double y, double z){
@@ -73,14 +81,6 @@ public class Vector3d implements titan.Vector3dInterface, StateInterface, RateIn
         return product;
     }
 
-    public titan.Vector3dInterface div(double scalar) {
-        Vector3d product = new Vector3d();
-        product.setX(this.x * (1/scalar));
-        product.setY(this.y * (1/scalar));
-        product.setZ(this.z *(1/scalar));
-        return product;
-    }
-
     @Override
     public titan.Vector3dInterface addMul(double scalar, titan.Vector3dInterface other) {
         titan.Vector3dInterface mul = other.mul(scalar);
@@ -88,14 +88,14 @@ public class Vector3d implements titan.Vector3dInterface, StateInterface, RateIn
         return res;
     }
 
-    // Euclidean norm of the vector
+    //euclidean norm of the vector
     @Override
     public double norm() {
         double norm = Math.sqrt((Math.pow((this.x - 0), 2) + Math.pow((this.y - 0), 2) + Math.pow((this.z - 0),2)));
         return norm;
     }
 
-    // Euclidean Distance of 2 objects
+    //euclidean distance of 2 vectors
     @Override
     public double dist(titan.Vector3dInterface other) {
         double d = Math.sqrt((Math.pow((this.x - other.getX()), 2) + Math.pow((this.y - other.getY()), 2) + Math.pow(this.z - other.getZ(),2)));
@@ -103,13 +103,8 @@ public class Vector3d implements titan.Vector3dInterface, StateInterface, RateIn
     }
 
     @Override
-    public StateInterface addMul(double step, RateInterface rate) {
-        return null;
-    }
-
-    @Override
     public String toString()
     {
-        return "Vector (" + x + ", " + y + ", " + z + ") ";
+        return "(" + x + ", " + y + ", " + z + ") ";
     }
 }
