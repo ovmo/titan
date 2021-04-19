@@ -27,6 +27,10 @@ public class ProbeSimulator implements ProbeSimulatorInterface {
         Planet.planets[11].posVector = p0;
         Planet.planets[11].velVector = v0;
 
+        if(DEBUG){
+            System.out.println("probeSimulator - probe at 0 " + Planet.planets[11].posVector);
+        }
+
         //initial state of the system
         State y0 = new State();
         y0.initializeState();
@@ -63,14 +67,13 @@ public class ProbeSimulator implements ProbeSimulatorInterface {
     @Override
     public Vector3dInterface[] trajectory(Vector3dInterface p0, Vector3dInterface v0, double tf, double h) {
 
-        // spacecraft.posVec = p0
-        // spacecraft velVec = v0
-        // new state y, fill with info from planets
-        // new solver -> solve(new f, y, tf, h)
-
         //starting conditions of the spacecraft
         Planet.planets[11].posVector = p0;
         Planet.planets[11].velVector = v0;
+
+        if(DEBUG){
+            System.out.println("probeSimulator - probe at 0 " + Planet.planets[11].posVector);
+        }
 
         //initial state of the system
         State y0 = new State();
@@ -90,7 +93,10 @@ public class ProbeSimulator implements ProbeSimulatorInterface {
         Vector3d [] trajectory = new Vector3d[(int) (Math.round(tf/h)+1)];
 
         for(int i = 0; i < trajectory.length; i++){
-            trajectory[i] = (Vector3d) states[i].getPos(10);
+            trajectory[i] = (Vector3d) states[i].getPos(11);
+            if(DEBUG){
+                System.out.println("probeSimulator - trajectory " + trajectory[i].toString());
+            }
         }
 
         return trajectory;

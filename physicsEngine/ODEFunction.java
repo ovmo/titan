@@ -1,7 +1,6 @@
 import titan.ODEFunctionInterface;
 import titan.RateInterface;
 import titan.StateInterface;
-import titan.Vector3dInterface;
 
 /**
  * class calculating acceleration using Newton's Law of Gravitation

@@ -27,7 +27,8 @@ public class State implements StateInterface{
             state[i][1] = Planet.planets[i].posVector;    //Initialize pos
 
             if(DEBUG){
-                System.out.println("State - initState " + Planet.planets[i].name + " " + state[i][1]);
+                System.out.println("State - initState position " + Planet.planets[i].name + " " + state[i][1]);
+                System.out.println("State - initState velocity " + Planet.planets[i].name + " " + state[i][0]);
             }
         }
     }
@@ -44,8 +45,9 @@ public class State implements StateInterface{
         }
 
         if(DEBUG){
-            System.out.println("State - position after update " + newState.getPos(3));
-            System.out.println(("State - velocity after update " + newState.getVel(3)));
+            int i = 11; //which object you look at
+            System.out.println("State - position after update " + Planet.planets[i].name + " " + newState.getPos(i));
+            System.out.println(("State - velocity after update " + Planet.planets[i].name + " " + newState.getVel(i)));
         }
         return newState;
 

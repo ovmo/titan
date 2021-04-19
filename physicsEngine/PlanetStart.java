@@ -174,12 +174,18 @@ public class PlanetStart {
         spaceCraft.mass = 15000;
         spaceCraft.radius = 10;
         spaceCraft.gravity = 1e-10;
-        spaceCraft.positionX = (6371e+3 + -1.471922101663588e+11);
-        spaceCraft.positionY = (6371e+3 + -2.860995816266412e+10);
-        spaceCraft.positionZ = (6371e+3 + 8.278183193596080e+06);
-        spaceCraft.velocityX = 5.427193405797901e+03;
-        spaceCraft.velocityY = -2.931056622265021e+04;
-        spaceCraft.velocityZ = 6.575428158157592e-01;
+//        spaceCraft.positionX = (6371e+3 + -1.471922101663588e+11);
+//        spaceCraft.positionY = (6371e+3 + -2.860995816266412e+10);
+//        spaceCraft.positionZ = (6371e+3 + 8.278183193596080e+06);
+//        spaceCraft.velocityX = 5.427193405797901e+03;
+//        spaceCraft.velocityY = -2.931056622265021e+04;
+//        spaceCraft.velocityZ = 6.575428158157592e-01;
+        spaceCraft.positionX = 0;
+        spaceCraft.positionY = 0;
+        spaceCraft.positionZ = 0;
+        spaceCraft.velocityX = 0;
+        spaceCraft.velocityY = 0;
+        spaceCraft.velocityZ = 0;
         spaceCraft.vectors();
         planets[11] = spaceCraft;
 

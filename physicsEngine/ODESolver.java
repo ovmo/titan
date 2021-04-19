@@ -10,6 +10,7 @@ import titan.StateInterface;
 public class ODESolver implements ODESolverInterface {
 
     public static boolean DEBUG = false;
+    public static State[] states;
 
     /**
      * Euler solver
@@ -23,7 +24,7 @@ public class ODESolver implements ODESolverInterface {
     public StateInterface[] solve(ODEFunctionInterface f, StateInterface y0, double[] ts) {
 
         //create array storing states at different timestamps
-        State[] states = new State[ts.length];
+        states = new State[ts.length];
         states[0] = (State) y0;
 
         for(int i = 1; i < states.length; i++){
@@ -53,18 +54,23 @@ public class ODESolver implements ODESolverInterface {
         }
 
         //create array storing states at different timestamps
-        State[] states = new State[(int) (Math.round(tf/h)+1)];
+        states = new State[(int) (Math.round(tf/h)+1)];
         states[0] = (State) y0;
 
         if(DEBUG){
             System.out.println("ODESolver - states " + states.length);
-            System.out.println("ODESolver - state at 0 " + y0.toString());
+            System.out.println("ODESolver - state at 0\n" + y0.toString());
         }
 
         for(int i = 1; i < states.length; i++){
             states[i] = (State) step(f, ts[i], states[i-1], h);
-            if(DEBUG){
-                System.out.println("ODESolver - state at " + i + "\n" + states[i].toString());
+        }
+
+        if(DEBUG){
+            for(int i = 0; i < (states.length); i++){
+                if(i % 10 == 0){ //print every day
+                    System.out.println("ODESolver - state at " + (i) + "\n" + states[i].toString());
+                }
             }
         }
 
