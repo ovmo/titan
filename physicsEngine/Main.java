@@ -64,7 +64,7 @@ public class Main {
 
             for(int i = 0; i < trajectory.length; i++){
 
-                    if (i % 100 == 0){ //print every 10 days
+                    if (i % 10 == 0){ //print every 1 days
                         System.out.println("probe at " + i + ": " + trajectory[i].toString());
                         System.out.println("titan at " + i + ": " + ODESolver.states[i].getPos(8));
                         System.out.println("euclidean distance probe to titan: " + trajectory[i].dist(ODESolver.states[i].getPos(8)));
