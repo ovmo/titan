@@ -100,7 +100,8 @@ public class Simulator
 			}
 			else
 			{
-				if ((d % 864000/2) == 0 || d > 31104000 && d <31150500) // 864000 represents an interval of 10 days, in terms of seconds. getting an update for the position
+				// || d > 31104000 && d <31124000
+				if ((d % 864000/2) == 0 ) //  864000 represents an interval of 10 days, in terms of seconds. getting an update for the position
 				{
 					//|| ((d) > 30240000 && d < 31451000 && d % 1000 == 0)
 					//position of the spacecraft and distance to titan
@@ -139,12 +140,12 @@ public class Simulator
 	 */
 	public Vector3dInterface takeOffPoint ()
 	{
-		// X = 4.284551418071800E+08 Y =-1.440882929383732E+09 Z = 8.535585199914813E+06
-		System.out.println("27 6 19 15");
+		// it doesnt get too much better and fom the vis i cant find out more - lets work with that and see if it improves drastically
+		// System.out.println("27 6 19 15:00:00");
 		double X = 4.284551418071800E+11;
 		double Y = -1.440882929383732E+12;
 		double Z = 8.535585199914813E+09;
-
+		// we create the titan at 17. June 2019 at 15:00:00
 		Vector3dInterface titanBefore = new Vector3d(X, Y, Z);
 		//Calculate the Unit vector for position to fly to PhysicsEngine.titan
 		System.out.println("Earth at 0" + planets[3].vector3d.toString());
