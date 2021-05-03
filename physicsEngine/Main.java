@@ -14,10 +14,10 @@ public class Main {
 
         //initial parameters to start the mission
         double tf = 31536000; //final time point of the mission ins seconds (31636000s = one year)
-        double h = (86400 / 10);  //step size with which everything is updated (86400s = 1 day)
+        double h = (86400 / 10000);  //step size with which everything is updated (86400s = 1 day)
 
         double initVel = 60000; //initial (undirected) velocity of the probe in m/s
-
+        System.out.println("apr 25-19");
         //calculate take off point of the probe
         TakeOffPoint takeOffPoint = new TakeOffPoint(initVel);
         Vector3dInterface p0 = takeOffPoint.startPos; //initial position here
@@ -28,7 +28,7 @@ public class Main {
 
         if(PRINT){
 
-            System.out.println();
+
             System.out.println();
             System.out.println("START OF MISSION TO TITAN");
             System.out.println();
@@ -64,10 +64,12 @@ public class Main {
 
             for(int i = 0; i < trajectory.length; i++){
 
-                    if (i % 10 == 0){ //print every 1 days
+                    if (i % 10000 == 0){ //print every 10 days
                         System.out.println("probe at " + i + ": " + trajectory[i].toString());
                         System.out.println("titan at " + i + ": " + ODESolver.states[i].getPos(8));
-                        System.out.println("euclidean distance probe to titan: " + trajectory[i].dist(ODESolver.states[i].getPos(8)));
+                        // System.out.println("sun at " + i + ": " + ODESolver.states[i].getPos(8));
+                        // ODESolver.states[i].getPos(8)
+                        System.out.println("euclidean distance probe to titan: " + ODESolver.states[i].getPos(8).dist(trajectory[i]));
                     }
             }
 

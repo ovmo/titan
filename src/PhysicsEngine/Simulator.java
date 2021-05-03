@@ -7,6 +7,7 @@ public class Simulator
 {
 	static final boolean DEBUG = true;
 	Planet[] planets;
+	public static Vector3dInterface gravitySunTitan;
 
 	/**
 	 * Constructor
@@ -79,7 +80,7 @@ public class Simulator
 //	}
 
 	public boolean launch(int stepSize, int initV) {
-
+	gravitySunTitan = new Vector3d(0,0,0);
 		spaceFlight (initV);
 		int cap = 31536001; //One year in seconds
 
@@ -99,10 +100,12 @@ public class Simulator
 			}
 			else
 			{
-				if (DEBUG && (d % 864000/2) == 0) // 864000 represents an interval of 10 days, in terms of seconds. getting an update for the position
+				if ((d % 864000/2) == 0 || d > 31104000 && d <31150500) // 864000 represents an interval of 10 days, in terms of seconds. getting an update for the position
 				{
+					//|| ((d) > 30240000 && d < 31451000 && d % 1000 == 0)
 					//position of the spacecraft and distance to titan
-					System.out.print("position of the probe " + (planets[11].vector3d.toString()));
+					//(planets[11].vector3d.toString())
+					System.out.print("position of the probe " + d);
 					System.out.println (", euclidean distance: " + planets[11].vector3d.dist(planets[8].vector3d));
 
 					//adding positions to orbits
@@ -114,7 +117,7 @@ public class Simulator
 				}
 			}
 		}
-
+//		System.out.println("the gravity that pulled on the probe based on the sun =" + gravitySunTitan.toString());
 		System.out.println("The probe did not reach titan within one year");
 		return true;
 	}
@@ -136,10 +139,17 @@ public class Simulator
 	 */
 	public Vector3dInterface takeOffPoint ()
 	{
+		// X = 4.284551418071800E+08 Y =-1.440882929383732E+09 Z = 8.535585199914813E+06
+		System.out.println("27 6 19 15");
+		double X = 4.284551418071800E+11;
+		double Y = -1.440882929383732E+12;
+		double Z = 8.535585199914813E+09;
+
+		Vector3dInterface titanBefore = new Vector3d(X, Y, Z);
 		//Calculate the Unit vector for position to fly to PhysicsEngine.titan
 		System.out.println("Earth at 0" + planets[3].vector3d.toString());
 		System.out.println("Titan " + planets[8].vector3d.toString());
-		Vector3d sub = (Vector3d)(planets[8].vector3d.sub(planets[3].vector3d));
+		Vector3d sub = (Vector3d)(titanBefore.sub(planets[3].vector3d));
 
 		Vector3dInterface unitVectorET = sub.div(Math.abs((planets[8].vector3d.sub(planets[3].vector3d)).norm()));
 		planets[11].vector3d = (Vector3d)((unitVectorET.mul(planets[3].radius)).add(planets[3].vector3d));

@@ -58,11 +58,16 @@ public class Newton
             // all other planets
             for(int j = 0; j< planets.length; j++)
             {
-                // if i planet and j planet are the NOT same  
+                // if i planet and j planet are the NOT same
+
                 if(i != j)
                 {
                     // calculate the acceleration from the attraction of the two objects
                     Vector3dInterface acceleration = Newton.solve(planets[i], planets[j]);
+                    if((i == 11 && j == 6 && planets[i].vector3d.dist(planets[j].vector3d) < planets[j].radius) || (i == 6 && j == 11 && (planets[i].vector3d.dist(planets[j].vector3d) < planets[i].radius)))
+                    {
+                        throw new RuntimeException("Hit Jupiter");
+                    }
                     //Add the calculated acceleration to acceleration of planet i
                     planets[i].accVector = (Vector3d)(planets[i].accVector.add(acceleration));
                 }
@@ -82,7 +87,7 @@ public class Newton
             planets[k].vector3d = posVector;
         }
         
-        if (planets[11].vector3d.dist(planets[8].vector3d) <= planets[8].radius)
+        if (planets[11].vector3d.dist(planets[8].vector3d) <= planets[8].radius + 100000000)
         {
             // this case hits if the spacecraft has plowed into titan - since we are updating
             // the intervals very frequently I assume that we will notice a hit.

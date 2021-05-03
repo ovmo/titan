@@ -15,10 +15,9 @@ public class TakeOffPoint {
      * @param initVel initial velocity in m/s
      */
     public TakeOffPoint(double initVel){
-
-       unitVector();
-       startPos();
-       startVel(initVel);
+        unitVector();
+        startPos();
+        startVel(initVel);
     }
 
     /**
@@ -28,7 +27,21 @@ public class TakeOffPoint {
      * @return the unitVector from earth to titan
      */
     public Vector3d unitVector(){
+        Planet titanReach = new Planet("TITAN AT 183");
+        titanReach.gravity = 8978.14E+03;
+        titanReach.mass = 13455.3E+19;
+        titanReach.radius = 2575.5E+03;
+        // X = 3.803247214809294E+08 Y =-1.455031224264102E+09 Z = 1.069955579090142E+07
+        // X = 6.332873118527889E+08 Y =-1.357175556995868E+09 Z =-2.134637041453660E+06
+        titanReach.positionX = 3.803247214809294E+11;
+        titanReach.positionY = -1.455031224264102E+12;
+        titanReach.positionZ = 1.069955579090142E+10;
+        titanReach.velocityX = 0;
+        titanReach.velocityY = 0;
+        titanReach.velocityZ = 0;
+        titanReach.vectors();
         unitVector = (Vector3d) Planet.planets[8].posVector.sub(Planet.planets[3].posVector).mul(1/Planet.planets[8].posVector.dist(Planet.planets[3].posVector));
+        // unitVector = (Vector3d) Planet.planets[8].posVector.sub(Planet.planets[3].posVector).mul(1/titanReach.posVector.dist(Planet.planets[3].posVector));
         return unitVector;
     }
     /**
