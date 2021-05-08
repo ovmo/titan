@@ -11,8 +11,8 @@ package titan;
  * An interface representing the time-derivative (rate-of-change) of the state of a system.
  *
  * The only uses of this interface are to be the output of the ODEFunctionInterface,
- * and to participate in the addMul method of StateInterface. A concrete State class
- * must cast the rate argument of addMul to a concrete Rate class of the expected type.
+ * and to participate in the addMul method of StateInterface. A concrete simulator.State class
+ * must cast the rate argument of addMul to a concrete simulator.Rate class of the expected type.
  *
  * For example, a Vector2d object might implement both StateInterface and RateInterface,
  * and define an addMul method taking and returning Vector2d object. The overriden addMul
