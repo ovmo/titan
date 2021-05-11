@@ -24,6 +24,8 @@
 #different IDE structures
 /out
 .vscode
+.vscode/.
+.idea/.
 .idea
 src/sample/*
 src/.DS_Store
